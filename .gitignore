@@ -175,5 +175,6 @@ cython_debug/
 .env
 dataset/
 data/
-gulf_chats_merged.json/
+gulf_chats_merged.json
+
 
