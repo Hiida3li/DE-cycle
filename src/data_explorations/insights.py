@@ -7,3 +7,4 @@ import warnings
 
 warnings.filterwarnings('ignore')
 
+sns.set()
