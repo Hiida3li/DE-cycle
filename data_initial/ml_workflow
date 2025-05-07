@@ -1,0 +1,32 @@
+// Machine Learning Workflow
+digraph ML_Workflow {
+	bgcolor="#f8f9fa" rankdir=LR size="10,6"
+	node [fontname=Arial fontsize=14 height=1 shape=box style="filled,rounded" width=2]
+	subgraph cluster_0 {
+		color="#4285f4" fillcolor="#e8f0fe" label="Data Preparation" style=filled
+		set_objective [label="Set Objective" fillcolor="#4285f4" fontcolor=white]
+		get_data [label="Get Data" fillcolor="#4285f4" fontcolor=white]
+		eda [label=EDA fillcolor="#4285f4" fontcolor=white]
+	}
+	subgraph cluster_1 {
+		color="#34a853" fillcolor="#e6f4ea" label="Model Development" style=filled
+		initial_model [label="Initial Model" fillcolor="#34a853" fontcolor=white]
+		train [label=Train fillcolor="#34a853" fontcolor=white]
+		test [label=Test fillcolor="#34a853" fontcolor=white]
+	}
+	subgraph cluster_2 {
+		color="#fbbc05" fillcolor="#fef7e0" label="Iteration & Improvement" style=filled
+		diagnose [label="Diagnose Issues" fillcolor="#fbbc05" fontcolor=white]
+		planning [label=Planning fillcolor="#fbbc05" fontcolor=white]
+		improvements [label="Make Improvements" fillcolor="#fbbc05" fontcolor=white]
+	}
+	set_objective -> get_data
+	get_data -> eda
+	eda -> initial_model
+	initial_model -> train
+	train -> test
+	test -> diagnose
+	diagnose -> planning
+	planning -> improvements
+	improvements -> eda [color="#ea4335" constraint=false]
+}
